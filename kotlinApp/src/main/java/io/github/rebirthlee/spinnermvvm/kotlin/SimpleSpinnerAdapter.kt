@@ -21,7 +21,7 @@ class SimpleSpinnerAdapter(context: Context,
                                                              @param:LayoutRes @field:LayoutRes
                                                              private val layoutId: Int,
                                                              private val viewModelVariable: Int,
-                                                             objects: List<Any?>) : ArrayAdapter<Any?>(context, layoutId, objects) {
+                                                             objects: List<Any>) : ArrayAdapter<Any>(context, layoutId, objects) {
     private val bindings = SparseArray<ViewDataBinding>()
     private val getViewTouchListener = { view: View, t: MotionEvent ->
         if (t.getAction() == MotionEvent.ACTION_UP && t.getPointerCount() == 1) {
