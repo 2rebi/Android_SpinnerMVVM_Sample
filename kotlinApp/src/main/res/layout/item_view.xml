@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <!--<import type="java.lang.String"/>-->
+        <variable
+            name="viewModel"
+            type="io.github.rebirthlee.spinnermvvm.kotlin.SimpleItemViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onClick()}">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon"
+            imgUrl="@{viewModel.url}"
+            android:layout_height="48dp"
+            android:layout_width="48dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="16dp" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:text="@{viewModel.title}"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintLeft_toRightOf="@+id/icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
