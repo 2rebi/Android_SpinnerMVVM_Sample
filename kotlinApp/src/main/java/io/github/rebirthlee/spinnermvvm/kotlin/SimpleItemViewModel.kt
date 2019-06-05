@@ -1,6 +1,6 @@
 package io.github.rebirthlee.spinnermvvm.kotlin
 
-class SimpleItemViewModel(private val model: Person, private val listener: OnClickListener<Person>) {
+class SimpleItemViewModel(private val model: Person, private val listener: (model: Person) -> Unit) {
 
     var url: String
         get() = model.url
@@ -15,6 +15,6 @@ class SimpleItemViewModel(private val model: Person, private val listener: OnCli
         }
 
     fun onClick() {
-        listener.onClick(model)
+        listener(model)
     }
 }
